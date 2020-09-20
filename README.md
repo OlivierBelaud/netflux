@@ -1,6 +1,6 @@
 # netflux
 
-> My grand Nuxt.js project
+> Netflix with Flux
 
 ## Build Setup
 
