@@ -3,3 +3,8 @@
 @import 'tailwindcss/components';
 /* purgecss end ignore */
 @import 'tailwindcss/utilities';
+
+/* html {
+  @apply text-red-500;
+  @apply font-bold;
+} */

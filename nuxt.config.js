@@ -1,7 +1,7 @@
 const path = require('path')
 
 export default {
-  ssr: 'false',
+  ssr: false,
   /*
    ** Headers of the page
    */
@@ -44,6 +44,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     'nuxt-purgecss',
+    'nuxt-webfontloader'
   ],
   /*
    ** Axios module configuration
@@ -56,6 +57,11 @@ export default {
   purgeCSS: {
     mode: 'postcss',
     enabled: (process.env.NODE_ENV === 'production')
+  },
+  webfontloader: {
+    google: {
+      families: ['Roboto:400,700,900'] //Loads Lato font with weights 400 and 700
+    }
   },
   build: {
     /*
