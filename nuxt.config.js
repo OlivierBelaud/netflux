@@ -1,5 +1,7 @@
+const path = require('path')
+
 export default {
-  mode: 'spa',
+  ssr: 'false',
   /*
    ** Headers of the page
    */
@@ -23,7 +25,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['~assets/css/tailwind.css'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -33,8 +35,6 @@ export default {
    */
   buildModules: [
     '@nuxt/typescript-build',
-    // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss'
   ],
   /*
    ** Nuxt.js modules
@@ -42,7 +42,8 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    'nuxt-purgecss',
   ],
   /*
    ** Axios module configuration
@@ -52,10 +53,24 @@ export default {
   /*
    ** Build configuration
    */
+  purgeCSS: {
+    mode: 'postcss',
+    enabled: (process.env.NODE_ENV === 'production')
+  },
   build: {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    // extend(config, ctx) {},
+    postcss: {
+      plugins: {
+        'postcss-import': {},
+        tailwindcss: path.resolve(__dirname, './tailwind.config.js'),
+        'postcss-nested': {}
+      }
+    },
+    preset: {
+      stage: 1 // see https://tailwindcss.com/docs/using-with-preprocessors#future-css-featuress
+    }
   }
 }
