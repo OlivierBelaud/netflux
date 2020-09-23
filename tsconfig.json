@@ -1,19 +1,19 @@
 {
   "compilerOptions": {
-    "target": "es2018",
-    "module": "esnext",
-    "moduleResolution": "node",
+    "target": "ES2018",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "lib": [
-      "esnext",
-      "esnext.asynciterable",
-      "dom"
+      "ESNext",
+      "ESNext.AsyncIterable",
+      "DOM"
     ],
     "esModuleInterop": true,
     "allowJs": true,
     "sourceMap": true,
     "strict": true,
     "noEmit": true,
-    "experimentalDecorators": true,
+    // "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {
       "~/*": [
@@ -29,6 +29,13 @@
       "@nuxt/types"
     ]
   },
+  "include": [
+    "**/*.ts",
+    "**/*.vue"
+  ],
+  "files": [
+    "./shims-vue.d.ts"
+  ],
   "exclude": [
     "node_modules",
     ".nuxt",

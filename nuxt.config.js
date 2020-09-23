@@ -1,4 +1,4 @@
-const path = require('path')
+import path from 'path'
 
 export default {
   ssr: false,
@@ -13,10 +13,10 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
-      }
+        content: process.env.npm_package_description || '',
+      },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   /*
    ** Customize the progress-bar color
@@ -25,7 +25,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['~assets/css/tailwind.css'],
+  css: ['~assets/style/tailwind.css'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -33,50 +33,36 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: [
-    '@nuxt/typescript-build',
-  ],
+  buildModules: ['@nuxt/typescript-build'],
   /*
    ** Nuxt.js modules
    */
-  modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
-    '@nuxtjs/pwa',
-    'nuxt-purgecss',
-    'nuxt-webfontloader'
-  ],
-  /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
-   */
-  axios: {},
+  modules: ['@nuxtjs/pwa', 'nuxt-purgecss', 'nuxt-webfontloader'],
   /*
    ** Build configuration
    */
   purgeCSS: {
     mode: 'postcss',
-    enabled: (process.env.NODE_ENV === 'production')
+    enabled: process.env.NODE_ENV === 'production',
   },
   webfontloader: {
     google: {
-      families: ['Roboto:400,700,900'] //Loads Lato font with weights 400 and 700
-    }
+      families: ['Roboto:400,700,900'], // Loads Lato font with weights 400 and 700
+    },
   },
   build: {
     /*
      ** You can extend webpack config here
      */
-    // extend(config, ctx) {},
     postcss: {
       plugins: {
         'postcss-import': {},
         tailwindcss: path.resolve(__dirname, './tailwind.config.js'),
-        'postcss-nested': {}
-      }
+        'postcss-nested': {},
+      },
     },
     preset: {
-      stage: 1 // see https://tailwindcss.com/docs/using-with-preprocessors#future-css-featuress
-    }
-  }
+      stage: 1, // see https://tailwindcss.com/docs/using-with-preprocessors#future-css-featuress
+    },
+  },
 }
