@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils'
-import Header from '@/components/Header.vue'
+import AppHeader from '@/components/AppHeader.vue'
 
 describe('Header.vue', () => {
-  const wrapper = mount(Header)
+  const wrapper = mount(AppHeader)
   const name = wrapper.findComponent({ ref: 'testHeaderName' })
   const number = wrapper.findComponent({ ref: 'testHeaderMovieNumber' })
   const wishlist = wrapper.findComponent({ ref: 'testHeaderWishlistLink' })
