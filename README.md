@@ -2,6 +2,8 @@
 
 > Netflix with Flux
 
+Live Preview : https://netflux-nuxt.herokuapp.com/
+
 ## Build Setup
 
 ```bash
